@@ -1,0 +1,291 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D519F66215FB24E80043F8D7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D519F66115FB24E80043F8D7 /* UIKit.framework */; };
+		D519F66415FB24E80043F8D7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D519F66315FB24E80043F8D7 /* Foundation.framework */; };
+		D519F66615FB24E80043F8D7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D519F66515FB24E80043F8D7 /* CoreGraphics.framework */; };
+		D519F66C15FB24E80043F8D7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D519F66A15FB24E80043F8D7 /* InfoPlist.strings */; };
+		D519F66E15FB24E80043F8D7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D519F66D15FB24E80043F8D7 /* main.m */; };
+		D519F67215FB24E80043F8D7 /* TWAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D519F67115FB24E80043F8D7 /* TWAppDelegate.m */; };
+		D519F67515FB24E80043F8D7 /* TWViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D519F67415FB24E80043F8D7 /* TWViewController.m */; };
+		D519F67815FB24E80043F8D7 /* TWViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D519F67615FB24E80043F8D7 /* TWViewController.xib */; };
+		D519F68015FBBFBE0043F8D7 /* TWTableViewEditorCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D519F67F15FBBFBE0043F8D7 /* TWTableViewEditorCell.m */; };
+		D519F68215FBBFD30043F8D7 /* TWTableViewEditorCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D519F68115FBBFD30043F8D7 /* TWTableViewEditorCell.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		D519F65D15FB24E80043F8D7 /* TaskPullDown.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TaskPullDown.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D519F66115FB24E80043F8D7 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		D519F66315FB24E80043F8D7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		D519F66515FB24E80043F8D7 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		D519F66915FB24E80043F8D7 /* TaskPullDown-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TaskPullDown-Info.plist"; sourceTree = "<group>"; };
+		D519F66B15FB24E80043F8D7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		D519F66D15FB24E80043F8D7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		D519F66F15FB24E80043F8D7 /* TaskPullDown-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TaskPullDown-Prefix.pch"; sourceTree = "<group>"; };
+		D519F67015FB24E80043F8D7 /* TWAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TWAppDelegate.h; sourceTree = "<group>"; };
+		D519F67115FB24E80043F8D7 /* TWAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TWAppDelegate.m; sourceTree = "<group>"; };
+		D519F67315FB24E80043F8D7 /* TWViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TWViewController.h; sourceTree = "<group>"; };
+		D519F67415FB24E80043F8D7 /* TWViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TWViewController.m; sourceTree = "<group>"; };
+		D519F67715FB24E80043F8D7 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/TWViewController.xib; sourceTree = "<group>"; };
+		D519F67E15FBBFBE0043F8D7 /* TWTableViewEditorCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TWTableViewEditorCell.h; path = TaskPullDown/TWTableViewEditorCell.h; sourceTree = "<group>"; };
+		D519F67F15FBBFBE0043F8D7 /* TWTableViewEditorCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TWTableViewEditorCell.m; path = TaskPullDown/TWTableViewEditorCell.m; sourceTree = "<group>"; };
+		D519F68115FBBFD30043F8D7 /* TWTableViewEditorCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TWTableViewEditorCell.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D519F65A15FB24E80043F8D7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D519F66215FB24E80043F8D7 /* UIKit.framework in Frameworks */,
+				D519F66415FB24E80043F8D7 /* Foundation.framework in Frameworks */,
+				D519F66615FB24E80043F8D7 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D519F65215FB24E70043F8D7 = {
+			isa = PBXGroup;
+			children = (
+				D519F67E15FBBFBE0043F8D7 /* TWTableViewEditorCell.h */,
+				D519F67F15FBBFBE0043F8D7 /* TWTableViewEditorCell.m */,
+				D519F68115FBBFD30043F8D7 /* TWTableViewEditorCell.xib */,
+				D519F66715FB24E80043F8D7 /* TaskPullDown */,
+				D519F66015FB24E80043F8D7 /* Frameworks */,
+				D519F65E15FB24E80043F8D7 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D519F65E15FB24E80043F8D7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D519F65D15FB24E80043F8D7 /* TaskPullDown.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D519F66015FB24E80043F8D7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D519F66115FB24E80043F8D7 /* UIKit.framework */,
+				D519F66315FB24E80043F8D7 /* Foundation.framework */,
+				D519F66515FB24E80043F8D7 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D519F66715FB24E80043F8D7 /* TaskPullDown */ = {
+			isa = PBXGroup;
+			children = (
+				D519F67015FB24E80043F8D7 /* TWAppDelegate.h */,
+				D519F67115FB24E80043F8D7 /* TWAppDelegate.m */,
+				D519F67315FB24E80043F8D7 /* TWViewController.h */,
+				D519F67415FB24E80043F8D7 /* TWViewController.m */,
+				D519F67615FB24E80043F8D7 /* TWViewController.xib */,
+				D519F66815FB24E80043F8D7 /* Supporting Files */,
+			);
+			path = TaskPullDown;
+			sourceTree = "<group>";
+		};
+		D519F66815FB24E80043F8D7 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D519F66915FB24E80043F8D7 /* TaskPullDown-Info.plist */,
+				D519F66A15FB24E80043F8D7 /* InfoPlist.strings */,
+				D519F66D15FB24E80043F8D7 /* main.m */,
+				D519F66F15FB24E80043F8D7 /* TaskPullDown-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D519F65C15FB24E80043F8D7 /* TaskPullDown */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D519F67B15FB24E90043F8D7 /* Build configuration list for PBXNativeTarget "TaskPullDown" */;
+			buildPhases = (
+				D519F65915FB24E80043F8D7 /* Sources */,
+				D519F65A15FB24E80043F8D7 /* Frameworks */,
+				D519F65B15FB24E80043F8D7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TaskPullDown;
+			productName = TaskPullDown;
+			productReference = D519F65D15FB24E80043F8D7 /* TaskPullDown.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D519F65415FB24E70043F8D7 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
+			buildConfigurationList = D519F65715FB24E70043F8D7 /* Build configuration list for PBXProject "TaskPullDown" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = D519F65215FB24E70043F8D7;
+			productRefGroup = D519F65E15FB24E80043F8D7 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D519F65C15FB24E80043F8D7 /* TaskPullDown */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D519F65B15FB24E80043F8D7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D519F66C15FB24E80043F8D7 /* InfoPlist.strings in Resources */,
+				D519F67815FB24E80043F8D7 /* TWViewController.xib in Resources */,
+				D519F68215FBBFD30043F8D7 /* TWTableViewEditorCell.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D519F65915FB24E80043F8D7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D519F66E15FB24E80043F8D7 /* main.m in Sources */,
+				D519F67215FB24E80043F8D7 /* TWAppDelegate.m in Sources */,
+				D519F67515FB24E80043F8D7 /* TWViewController.m in Sources */,
+				D519F68015FBBFBE0043F8D7 /* TWTableViewEditorCell.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		D519F66A15FB24E80043F8D7 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D519F66B15FB24E80043F8D7 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		D519F67615FB24E80043F8D7 /* TWViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D519F67715FB24E80043F8D7 /* en */,
+			);
+			name = TWViewController.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D519F67915FB24E80043F8D7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		D519F67A15FB24E80043F8D7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D519F67C15FB24E90043F8D7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TaskPullDown/TaskPullDown-Prefix.pch";
+				INFOPLIST_FILE = "TaskPullDown/TaskPullDown-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		D519F67D15FB24E90043F8D7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TaskPullDown/TaskPullDown-Prefix.pch";
+				INFOPLIST_FILE = "TaskPullDown/TaskPullDown-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D519F65715FB24E70043F8D7 /* Build configuration list for PBXProject "TaskPullDown" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D519F67915FB24E80043F8D7 /* Debug */,
+				D519F67A15FB24E80043F8D7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D519F67B15FB24E90043F8D7 /* Build configuration list for PBXNativeTarget "TaskPullDown" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D519F67C15FB24E90043F8D7 /* Debug */,
+				D519F67D15FB24E90043F8D7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D519F65415FB24E70043F8D7 /* Project object */;
+}
