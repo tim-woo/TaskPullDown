@@ -14,4 +14,15 @@
 @synthesize overlay;
 @synthesize releaseLabel;
 @synthesize pullDownLabel;
+@synthesize swipeDelete;
+@synthesize indexPath;
+@synthesize delegate;
+
+- (IBAction)swipeToDelete:(id)sender {
+    if (self.delegate && [self.delegate respondsToSelector:@selector(cell:didSwipeToDelete:)]) {
+        [self.delegate cell:self didSwipeToDelete:self.swipeDelete];
+    }
+}
 @end
+
+

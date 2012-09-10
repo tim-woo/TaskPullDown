@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TWTableViewEditorCell.h"
 
-@interface TWViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate, UITextFieldDelegate>
+@interface TWViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate, UITextFieldDelegate, TWTableViewEditorCellDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end

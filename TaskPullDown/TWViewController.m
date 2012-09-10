@@ -7,7 +7,6 @@
 //
 
 #import "TWViewController.h"
-#import "TWTableViewEditorCell.h"
 
 #import <QuartzCore/QuartzCore.h>
 
@@ -84,6 +83,8 @@
     return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
 }
 
+#pragma mark - Helper Methods
+
 - (void)showShadow {
     self.shadow.hidden = NO;
     self.tapGesture.enabled = YES;
@@ -108,7 +109,7 @@
                           withRowAnimation:UITableViewRowAnimationLeft];
 }
 
-#pragma mark keyboard notifications
+#pragma mark - Keyboard Notifications
 
 - (void)keyboardWillHide:(NSNotification *)notification {
     [self hideShadow];
@@ -120,6 +121,8 @@
     UIEdgeInsets ins = self.tableView.contentInset;
     self.tableView.contentInset = UIEdgeInsetsMake(-44.0, ins.left, ins.bottom, ins.right);
 }
+
+#pragma mark - Table View Delegate + Datasource
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:[self.tasks objectAtIndex:indexPath.row] message:nil delegate:nil cancelButtonTitle:@"Later" otherButtonTitles:@"Okay", nil];
@@ -136,19 +139,23 @@
     if (!tcell) {
         tcell = [[[NSBundle mainBundle] loadNibNamed:@"TWTableViewEditorCell" owner:self options:nil] objectAtIndex:0];
     }
-    
+
     tcell.textField.delegate = self;
     tcell.textField.text = [self.tasks objectAtIndex:indexPath.row];
     tcell.selectedBackgroundView = tcell.selectedBkgView;
     tcell.layer.anchorPoint = CGPointMake(1, 1);
-    
+
+    // swipe to delete feature
+    tcell.delegate = self;
+    tcell.indexPath = indexPath;
+
     return tcell;
 }
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {   
     
     TWTableViewEditorCell *tcell = (TWTableViewEditorCell *)cell;
-    
+
     if (indexPath.row == 0) {
         if (self.isNewTask) {
             NSLog(@"new task");
@@ -169,7 +176,7 @@
     tcell.pullDownLabel.hidden = YES;
 }
 
-#pragma mark ScrollView Delegate
+#pragma mark - ScrollView Delegate
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     TWTableViewEditorCell *tcell = (TWTableViewEditorCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
@@ -219,6 +226,8 @@
     self.isDragging = NO;
 }
 
+#pragma mark - Textfield Delegate Methods
+
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     if (![textField.text isEqualToString:@""]) {
         [self.tasks replaceObjectAtIndex:0 withObject:textField.text];
@@ -235,6 +244,15 @@
     ((TWTableViewEditorCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]]).overlay.hidden = NO;
     
     return YES;
+}
+
+#pragma mark - TWTableViewEditorCell
+
+- (void)cell:(TWTableViewEditorCell *)cell didSwipeToDelete:(UISwipeGestureRecognizer *)gesture {
+    [self.tasks removeObjectAtIndex:cell.indexPath.row];
+    [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:cell.indexPath] withRowAnimation:UITableViewRowAnimationLeft];
+
+    [self.tableView reloadData];
 }
 
 @end
