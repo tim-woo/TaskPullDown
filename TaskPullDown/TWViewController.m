@@ -58,16 +58,9 @@
     // e.g. self.myOutlet = nil;
 }
 
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-}
-
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidHide:) name:UIKeyboardDidHideNotification object:nil];
@@ -78,16 +71,11 @@
 	[super viewWillDisappear:animated];
     
     [[NSNotificationCenter defaultCenter] removeObserver:self
-                                                    name:UIKeyboardWillShowNotification
+                                                    name:UIKeyboardDidHideNotification
                                                   object:nil];
     [[NSNotificationCenter defaultCenter] removeObserver:self
                                                     name:UIKeyboardWillHideNotification
                                                   object:nil];
-}
-
-- (void)viewDidDisappear:(BOOL)animated
-{
-	[super viewDidDisappear:animated];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -121,8 +109,6 @@
 }
 
 #pragma mark keyboard notifications
-- (void)keyboardWillShow:(NSNotification *)notification {
-}
 
 - (void)keyboardWillHide:(NSNotification *)notification {
     [self hideShadow];
@@ -163,19 +149,20 @@
     
     TWTableViewEditorCell *tcell = (TWTableViewEditorCell *)cell;
     
-    if (indexPath.row == 0 && self.isNewTask) {
-        NSLog(@"display HIDE: %u", indexPath.row);
-        
-        [tcell.textField becomeFirstResponder];
-        tcell.overlay.hidden = YES;
-        self.isNewTask = NO;
-    }
-    if (indexPath.row == 0 && !self.isNewTask) {
-        NSLog(@"display SHOW: %u", indexPath.row);
-        CATransform3D rotation = CATransform3DMakeRotation(-M_PI_2, 1.0, 0, 0);
-        CATransform3D trans = CATransform3DTranslate(rotation, 0.0, 0.0, -100.0);
-        trans.m34 = 1.0/700;
-        tcell.layer.transform = trans;
+    if (indexPath.row == 0) {
+        if (self.isNewTask) {
+            NSLog(@"new task");
+            
+            [tcell.textField becomeFirstResponder];
+            tcell.overlay.hidden = YES;
+            self.isNewTask = NO;
+        }
+        else {
+            NSLog(@"pulling down hidden row");
+            CATransform3D rotation = CATransform3DMakeRotation(-M_PI_2, 1.0, 0, 0);
+            CATransform3D trans = CATransform3DTranslate(rotation, 0.0, 0.0, -100.0);
+            tcell.layer.transform = trans;
+        }
     }
 
     tcell.release.hidden = YES;
@@ -198,7 +185,7 @@
         }
     }
     
-    if (self.isDragging && self.tableView.contentOffset.y < 44.0) {
+    if (self.isDragging && self.tableView.contentOffset.y < 44.0 && self.tableView.contentOffset.y > 0.0) {
         
         // The rotation is dependent on the tableview's content offset. 
         CGFloat degrees = self.tableView.contentOffset.y * -M_PI_2 / 44.0;
@@ -222,7 +209,7 @@
         
         UIEdgeInsets ins = self.tableView.contentInset;
         self.tableView.contentInset = UIEdgeInsetsMake(0.0, ins.left, ins.bottom, ins.right);
-        [self.tableView reloadData];
+        [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:0 inSection:0]] withRowAnimation:UITableViewRowAnimationNone];
         [self showShadow];
     }
     
