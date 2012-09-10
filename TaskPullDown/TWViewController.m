@@ -115,7 +115,7 @@
 
 - (IBAction)endEditing:(id)sender {
     [self.tableView endEditing:NO];
-    [self.tasks removeObjectAtIndex:1];
+    [self.tasks removeObjectAtIndex:0];
     [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:0 inSection:0]] 
                           withRowAnimation:UITableViewRowAnimationLeft];
 }
@@ -155,6 +155,7 @@
     tcell.textField.text = [self.tasks objectAtIndex:indexPath.row];
     tcell.selectedBackgroundView = tcell.selectedBkgView;
     tcell.layer.anchorPoint = CGPointMake(1, 1);
+    
     return tcell;
 }
 
@@ -171,10 +172,12 @@
     }
     if (indexPath.row == 0 && !self.isNewTask) {
         NSLog(@"display SHOW: %u", indexPath.row);
-
-        tcell.layer.transform = CATransform3DMakeRotation(-M_PI_2, 1.0, 0, 0);
+        CATransform3D rotation = CATransform3DMakeRotation(-M_PI_2, 1.0, 0, 0);
+        CATransform3D trans = CATransform3DTranslate(rotation, 0.0, 0.0, -100.0);
+        trans.m34 = 1.0/700;
+        tcell.layer.transform = trans;
     }
-    
+
     tcell.release.hidden = YES;
     tcell.pullDownLabel.hidden = YES;
 }
@@ -195,21 +198,18 @@
         }
     }
     
-//    if (self.tableView.contentOffset.y > 0.0) {
-//        CATransform3D translate = CATransform3DTranslate(tcell.layer.transform, 0, 0, -3.0);
-        
-    
-    if (!CATransform3DIsIdentity(tcell.layer.transform)) {
+    if (self.isDragging && self.tableView.contentOffset.y < 44.0) {
         
         // The rotation is dependent on the tableview's content offset. 
         CGFloat degrees = self.tableView.contentOffset.y * -M_PI_2 / 44.0;
-        tcell.layer.transform = CATransform3DMakeRotation(degrees, 1.0, 0.0, 0.0);
+        CATransform3D trans = CATransform3DMakeRotation(degrees, 1.0, 0.0, 0.0);
+        trans.m34 = 1.0/-5000.0;
+        tcell.layer.transform = trans;
     }
     
-    if (self.tableView.contentOffset.y < 0) {
+    if (self.tableView.contentOffset.y < 0 && !CATransform3DIsIdentity(tcell.layer.transform)) {
         tcell.layer.transform = CATransform3DIdentity;
     }
-//    }   
 }
 
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
