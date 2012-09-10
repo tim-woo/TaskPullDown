@@ -154,7 +154,7 @@
     tcell.textField.delegate = self;
     tcell.textField.text = [self.tasks objectAtIndex:indexPath.row];
     tcell.selectedBackgroundView = tcell.selectedBkgView;
-    
+    tcell.layer.anchorPoint = CGPointMake(1, 1);
     return tcell;
 }
 
@@ -172,15 +172,7 @@
     if (indexPath.row == 0 && !self.isNewTask) {
         NSLog(@"display SHOW: %u", indexPath.row);
 
-//        CATransform3D hide = CATransform3DRotate(cell.layer.transform, -1.57, 1.0, 0, 0);
-//        cell.layer.transform = CATransform3DMakeRotation(-1.57, 1.0, 0, 0 );
-//        CATransform3D translate = CATransform3DMakeTranslation(0, 0, -3.0));
-//        cell.layer.transform = translate;
-//        cell.layer.transform = translate;
-//        cell.layer.transform = CATransform3DMakeTranslation(0.0, 40.0, 0.0);
-//        ((TWTableViewEditorCell *)cell).hidden = NO;
-//        CATransform3D rotateHide = CATransform3DMakeRotation(1.50, 1.0, 0.0, 0.0);
-//        cell.layer.transform = rotateHide;
+        tcell.layer.transform = CATransform3DMakeRotation(-M_PI_2, 1.0, 0, 0);
     }
     
     tcell.release.hidden = YES;
@@ -192,7 +184,6 @@
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     TWTableViewEditorCell *tcell = (TWTableViewEditorCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
     
-//    NSLog(@"%f", self.tableView.contentOffset.y);
     if (self.isDragging) {
         if (self.tableView.contentOffset.y < 0.0) {
             tcell.release.hidden = NO;
@@ -204,13 +195,21 @@
         }
     }
     
-    if (self.tableView.contentOffset.y < 0.0) {
-//        CATransform3D translate = CATransform3DTranslate(cell.layer.transform, 0, 0, -3.0);
-//        CATransform3D rotate = CATransform3DRotate(cell.layer.transform, 0.1, 1.0, 0, 0);
+//    if (self.tableView.contentOffset.y > 0.0) {
+//        CATransform3D translate = CATransform3DTranslate(tcell.layer.transform, 0, 0, -3.0);
         
-//        cell.layer.transform = rota  }
-//    CATransform3D translate = CATransform3DMakeTranslation(0, 0, -4.0);
- }   
+    
+    if (!CATransform3DIsIdentity(tcell.layer.transform)) {
+        
+        // The rotation is dependent on the tableview's content offset. 
+        CGFloat degrees = self.tableView.contentOffset.y * -M_PI_2 / 44.0;
+        tcell.layer.transform = CATransform3DMakeRotation(degrees, 1.0, 0.0, 0.0);
+    }
+    
+    if (self.tableView.contentOffset.y < 0) {
+        tcell.layer.transform = CATransform3DIdentity;
+    }
+//    }   
 }
 
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
@@ -226,6 +225,9 @@
         [self.tableView reloadData];
         [self showShadow];
     }
+    
+    TWTableViewEditorCell *tcell = (TWTableViewEditorCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+    tcell.layer.transform = CATransform3DIdentity;
     
     self.isDragging = NO;
 }
@@ -245,9 +247,6 @@
     // renables overlay so it can be pressed without editing
     ((TWTableViewEditorCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]]).overlay.hidden = NO;
     
-    
-        
-    NSLog(@"should return");
     return YES;
 }
 
