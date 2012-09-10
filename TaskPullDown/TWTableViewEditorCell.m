@@ -12,4 +12,6 @@
 @synthesize textField;
 @synthesize selectedBkgView;
 @synthesize overlay;
+@synthesize release;
+@synthesize pullDownLabel;
 @end

@@ -17,6 +17,7 @@
 		D519F67815FB24E80043F8D7 /* TWViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D519F67615FB24E80043F8D7 /* TWViewController.xib */; };
 		D519F68015FBBFBE0043F8D7 /* TWTableViewEditorCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D519F67F15FBBFBE0043F8D7 /* TWTableViewEditorCell.m */; };
 		D519F68215FBBFD30043F8D7 /* TWTableViewEditorCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D519F68115FBBFD30043F8D7 /* TWTableViewEditorCell.xib */; };
+		D587A13015FDB8B10057EF6D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D587A12F15FDB8B10057EF6D /* QuartzCore.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		D519F67E15FBBFBE0043F8D7 /* TWTableViewEditorCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TWTableViewEditorCell.h; path = TaskPullDown/TWTableViewEditorCell.h; sourceTree = "<group>"; };
 		D519F67F15FBBFBE0043F8D7 /* TWTableViewEditorCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TWTableViewEditorCell.m; path = TaskPullDown/TWTableViewEditorCell.m; sourceTree = "<group>"; };
 		D519F68115FBBFD30043F8D7 /* TWTableViewEditorCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TWTableViewEditorCell.xib; sourceTree = "<group>"; };
+		D587A12F15FDB8B10057EF6D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +45,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D587A13015FDB8B10057EF6D /* QuartzCore.framework in Frameworks */,
 				D519F66215FB24E80043F8D7 /* UIKit.framework in Frameworks */,
 				D519F66415FB24E80043F8D7 /* Foundation.framework in Frameworks */,
 				D519F66615FB24E80043F8D7 /* CoreGraphics.framework in Frameworks */,
@@ -55,6 +58,7 @@
 		D519F65215FB24E70043F8D7 = {
 			isa = PBXGroup;
 			children = (
+				D587A12F15FDB8B10057EF6D /* QuartzCore.framework */,
 				D519F67E15FBBFBE0043F8D7 /* TWTableViewEditorCell.h */,
 				D519F67F15FBBFBE0043F8D7 /* TWTableViewEditorCell.m */,
 				D519F68115FBBFD30043F8D7 /* TWTableViewEditorCell.xib */,
@@ -284,6 +288,7 @@
 				D519F67D15FB24E90043F8D7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
