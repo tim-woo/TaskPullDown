@@ -165,7 +165,7 @@
         }
     }
 
-    tcell.release.hidden = YES;
+    tcell.releaseLabel.hidden = YES;
     tcell.pullDownLabel.hidden = YES;
 }
 
@@ -176,11 +176,11 @@
     
     if (self.isDragging) {
         if (self.tableView.contentOffset.y < 0.0) {
-            tcell.release.hidden = NO;
+            tcell.releaseLabel.hidden = NO;
             tcell.pullDownLabel.hidden = YES;
         }
         else {
-            tcell.release.hidden = YES;
+            tcell.releaseLabel.hidden = YES;
             tcell.pullDownLabel.hidden = NO;
         }
     }

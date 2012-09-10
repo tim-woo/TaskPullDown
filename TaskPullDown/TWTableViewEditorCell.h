@@ -12,7 +12,7 @@
 @property (strong, nonatomic) IBOutlet UITextField *textField;
 @property (strong, nonatomic) IBOutlet UIView *selectedBkgView;
 @property (strong, nonatomic) IBOutlet UIView *overlay;
-@property (strong, nonatomic) IBOutlet UILabel *release;
+@property (strong, nonatomic) IBOutlet UILabel *releaseLabel;
 @property (strong, nonatomic) IBOutlet UILabel *pullDownLabel;
 
 @end
